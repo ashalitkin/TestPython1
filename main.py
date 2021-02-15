@@ -8,24 +8,24 @@
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 
+
 def STriangle(s):
     return abs(((int(s[3]) - int(s[15])) * (int(s[11]) - int(s[17])) - (int(s[9]) - int(s[15])) * (
                 int(s[5]) - int(s[17]))) / 2)
 
-f = open('C:/Users/Гед/PycharmProjects/PythonProject1/file.txt', 'r')
+with open('C:/Users/Гед/PycharmProjects/PythonProject1/file.txt', 'r') as f:
+    array = f.readlines()
 
+    array1 = []
+    i=0
+    for s in array:
+        s = array[i]
+        i=i+1
+        array1.append(STriangle(s))
 
-try:
-    for line in f:
-         s = line
-         print(s)
-         print('Площадь треугольника ' + str(STriangle(s)))
-except:
-    print('ERROR')
-finally:
-     f.close
-
-
+    array1 = sorted(array1)
+    print('Площадь треугольников в порядке возрастания: ')
+    print(array1)
 
 
 
